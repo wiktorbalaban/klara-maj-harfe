@@ -1,0 +1,52 @@
+---
+import { enabledLocales, locales, type Locale } from '../config/site';
+import { localePath, stripLocale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const basePath = stripLocale(Astro.url.pathname);
+---
+
+<ul class="switcher">
+  {
+    enabledLocales.map((entry) => (
+      <li>
+        {entry === locale ? (
+          <span aria-current="true">{entry.toUpperCase()}</span>
+        ) : (
+          <a href={localePath(basePath, entry)} hreflang={locales[entry].hreflang} lang={locales[entry].hreflang}>
+            {entry.toUpperCase()}
+          </a>
+        )}
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .switcher {
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--sans);
+    font-size: var(--step--1);
+  }
+
+  .switcher a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .switcher a:hover {
+    border-bottom-color: var(--string);
+  }
+
+  .switcher [aria-current] {
+    color: var(--string);
+  }
+</style>

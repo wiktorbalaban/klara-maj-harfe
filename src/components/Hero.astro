@@ -1,0 +1,134 @@
+---
+import { home } from '../lib/content';
+import type { Locale } from '../config/site';
+import { pick } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { hero } = home;
+
+// Saitenmotiv: 28 Hairlines, jede siebte in Granatrot - so wie an der Harfe
+// jede C-Saite rot eingefaerbt ist, damit man sich orientieren kann.
+const strings = Array.from({ length: 28 }, (_, index) => ({
+  index,
+  isC: index % 7 === 0,
+}));
+---
+
+<section class="hero">
+  <div class="strings" aria-hidden="true">
+    {
+      strings.map((string) => (
+        <span class={string.isC ? 'string string-c' : 'string'} style={`--i:${string.index}`} />
+      ))
+    }
+  </div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <h1>{pick(hero.headline, locale)}</h1>
+      <p class="lead">{pick(hero.intro, locale)}</p>
+    </div>
+
+    <figure class="hero-figure">
+      <img
+        src={hero.photo}
+        alt={pick(hero.photoAlt, locale)}
+        width="1600"
+        height="1067"
+        fetchpriority="high"
+        decoding="async"
+      />
+      {hero.photoCredit && <figcaption class="credit">{hero.photoCredit}</figcaption>}
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-block: clamp(3rem, 7vw, 5.5rem) var(--section-space);
+    overflow: hidden;
+  }
+
+  .strings {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: clamp(7rem, 16vw, 12rem);
+    display: flex;
+    justify-content: space-between;
+    width: min(100% - 2 * var(--gap), var(--wrap));
+    margin-inline: auto;
+    pointer-events: none;
+  }
+
+  .string {
+    width: 1px;
+    background: linear-gradient(to bottom, var(--line), transparent);
+    transform-origin: top;
+    animation: pluck 900ms cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+    animation-delay: calc(var(--i) * 26ms);
+  }
+
+  .string-c {
+    background: linear-gradient(to bottom, var(--string), transparent);
+    opacity: 0.55;
+  }
+
+  @keyframes pluck {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .string {
+      animation: none;
+    }
+  }
+
+  .hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: end;
+  }
+
+  .hero-text {
+    max-width: 30ch;
+  }
+
+  .hero-text .lead {
+    max-width: var(--measure);
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  @media (min-width: 56rem) {
+    .hero-inner {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+    }
+
+    .hero-text {
+      padding-block: 2rem;
+    }
+  }
+</style>

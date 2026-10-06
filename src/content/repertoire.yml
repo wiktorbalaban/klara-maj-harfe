@@ -1,0 +1,157 @@
+# Repertoire. Gruppen und Stuecke.
+#
+# source = Komponist, Film oder Interpret (wird NICHT uebersetzt)
+# works  = Liste der Stuecke (wird NICHT uebersetzt)
+# Nur die Gruppentitel und der Einleitungstext sind zweisprachig.
+
+intro:
+  de: >-
+    Eine Auswahl aus dem, was am haeufigsten gewuenscht wird. Die Liste ist
+    nicht abgeschlossen: Wenn euer Stueck fehlt, schreibt es einfach in die
+    Anfrage. Vieles laesst sich fuer Harfe einrichten.
+  en: >-
+    A selection of the pieces most often requested. The list is not exhaustive:
+    if the piece you have in mind is missing, just mention it in your enquiry.
+    Much of it can be arranged for harp.
+
+groups:
+  - id: klassik
+    title:
+      de: Klassik
+      en: Classical
+    pieces:
+      - source: C. Debussy
+        works:
+          - Clair de Lune
+          - Arabesque Nr. 1
+      - source: L. Delibes
+        works:
+          - Blumenduett (aus „Lakmé“)
+      - source: P. Mascagni
+        works:
+          - Intermezzo (aus „Cavalleria rusticana“)
+      - source: F. Schubert
+        works:
+          - Ave Maria
+          - Ständchen (Serenade)
+      - source: E. di Capua
+        works:
+          - "’O sole mio"
+      - source: P. I. Tschaikowski
+        works:
+          - Blumenwalzer
+      - source: N. Rimski-Korsakow
+        works:
+          - Scheherazade
+      - source: L. v. Beethoven
+        works:
+          - Mondscheinsonate
+      - source: E. Satie
+        works:
+          - Gymnopédie Nr. 1
+      - source: G. Fauré
+        works:
+          - Une châtelaine en sa tour
+          - Pavane
+      - source: M. Grandjany
+        works:
+          - Rêverie
+
+  - id: filmmusik
+    title:
+      de: Filmmusik
+      en: Film music
+    pieces:
+      - source: Frühstück bei Tiffany
+        works:
+          - Moon River
+      - source: Aladdin
+        works:
+          - A Whole New World
+      - source: Die Schöne und das Biest
+        works:
+          - Tale as Old as Time
+      - source: Der König der Löwen
+        works:
+          - Can You Feel the Love Tonight
+      - source: Der Herr der Ringe
+        works:
+          - The Shire (Concerning Hobbits)
+      - source: Rapunzel – Neu verföhnt
+        works:
+          - I See the Light
+      - source: Notting Hill
+        works:
+          - She (Elvis Costello)
+      - source: Oben
+        works:
+          - Married Life
+
+  - id: popmusik
+    title:
+      de: Popmusik
+      en: Pop
+    pieces:
+      - source: Christina Perri
+        works:
+          - A Thousand Years
+      - source: Yiruma
+        works:
+          - River Flows in You
+      - source: Elvis Presley
+        works:
+          - Can’t Help Falling in Love
+      - source: Louis Armstrong
+        works:
+          - What a Wonderful World
+      - source: Taylor Swift
+        works:
+          - Lover
+      - source: Stephen Sanchez
+        works:
+          - Until I Found You
+      - source: Ruelle
+        works:
+          - I Get to Love You
+      - source: Sleeping at Last
+        works:
+          - Turning Page
+      - source: Ed Sheeran
+        works:
+          - Perfect
+      - source: Grover Washington Jr. & Bill Withers
+        works:
+          - Just the Two of Us
+      - source: Bill Withers
+        works:
+          - Ain’t No Sunshine
+      - source: Bette Midler
+        works:
+          - The Rose
+
+  - id: hisaishi
+    title:
+      de: Joe Hisaishi und Ghibli
+      en: Joe Hisaishi and Ghibli
+    pieces:
+      - source: Chihiros Reise ins Zauberland
+        works:
+          - Der sechste Bahnhof
+          - The Name of Life
+          - Always with Me
+      - source: Das wandelnde Schloss
+        works:
+          - Merry-Go-Round of Life
+      - source: Prinzessin Mononoke
+        works:
+          - Ashitaka and San
+      - source: Das Schloss im Himmel
+        works:
+          - Memories of Gondoa
+          - Innocence
+      - source: Porco Rosso
+        works:
+          - Marco and Gina
+      - source: Joe Hisaishi
+        works:
+          - View of Silence

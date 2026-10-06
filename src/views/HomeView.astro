@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import RepertoirePreview from '../components/RepertoirePreview.astro';
+import Contact from '../components/Contact.astro';
+import { settings } from '../lib/content';
+import type { Locale } from '../config/site';
+import { pick } from '../i18n/utils';
+import { home } from '../lib/content';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const title = `${settings.name} – ${settings.instrument} | ${pick(home.hero.headline, locale)}`;
+---
+
+<Base locale={locale} title={title} path="/">
+  <Hero locale={locale} />
+  <About locale={locale} />
+  <RepertoirePreview locale={locale} />
+  <Contact locale={locale} />
+</Base>

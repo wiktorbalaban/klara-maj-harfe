@@ -1,0 +1,132 @@
+---
+import { settings } from '../lib/content';
+import { showLangSwitcher, type Locale } from '../config/site';
+import { localePath } from '../i18n/utils';
+import { t } from '../i18n/ui';
+import LangSwitcher from './LangSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const home = localePath('/', locale);
+
+const links = [
+  { href: `${home}#ueber-mich`, label: t(locale, 'nav.about') },
+  { href: localePath('/repertoire', locale), label: t(locale, 'nav.repertoire') },
+  { href: `${home}#kontakt`, label: t(locale, 'nav.contact') },
+];
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="wordmark" href={home}>
+      <span class="wordmark-name">{settings.name}</span>
+      <span class="wordmark-instrument">{settings.instrument}</span>
+    </a>
+
+    <nav aria-label={t(locale, 'nav.menu')}>
+      <ul>
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+        {showLangSwitcher && (
+          <li class="lang">
+            <LangSwitcher locale={locale} />
+          </li>
+        )}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 90%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-block: 0.9rem;
+  }
+
+  /* Name und Instrument wie in der Skizze: unterstrichen, in der Akzentfarbe. */
+  .wordmark {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5ch;
+    border-bottom: 1px solid var(--string);
+    padding-bottom: 0.15rem;
+  }
+
+  .wordmark-name {
+    font-size: var(--step-1);
+    color: var(--string);
+    letter-spacing: -0.01em;
+  }
+
+  .wordmark-instrument {
+    font-family: var(--sans);
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--ink-soft);
+    position: relative;
+    top: -0.05em;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    font-family: var(--sans);
+    font-size: var(--step--1);
+    font-weight: 500;
+    text-decoration: none;
+    padding-block: 0.25rem;
+    border-bottom: 1px solid transparent;
+  }
+
+  nav a:hover {
+    border-bottom-color: var(--string);
+  }
+
+  .lang {
+    border-left: 1px solid var(--line);
+    padding-left: 1.5rem;
+  }
+
+  @media (max-width: 30rem) {
+    .bar {
+      padding-block: 0.75rem;
+    }
+    nav ul {
+      gap: 0.25rem 1.1rem;
+    }
+    .lang {
+      border-left: 0;
+      padding-left: 0;
+    }
+  }
+</style>

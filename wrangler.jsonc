@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers mit statischen Assets.
+  // Deploy laeuft ueber die Git-Anbindung in Cloudflare (Build-Befehl: npm run build,
+  // Ausgabeverzeichnis: dist). Diese Datei wird gebraucht, wenn man stattdessen
+  // lokal mit "npx wrangler deploy" veroeffentlichen will.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "klara-maj-harfe",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

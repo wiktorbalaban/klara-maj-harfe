@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { defaultLocale } from '../config/site';
+import { localePath } from '../i18n/utils';
+import { t } from '../i18n/ui';
+
+const locale = defaultLocale;
+---
+
+<Base locale={locale} title={t(locale, 'error.title')} path="/404/">
+  <section class="section">
+    <div class="wrap prose">
+      <h1>{t(locale, 'error.title')}</h1>
+      <p class="lead">{t(locale, 'error.text')}</p>
+      <p><a class="text-link" href={localePath('/', locale)}>{t(locale, 'error.home')}</a></p>
+    </div>
+  </section>
+</Base>

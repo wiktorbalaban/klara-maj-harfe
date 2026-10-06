@@ -1,0 +1,64 @@
+---
+import { repertoire } from '../lib/content';
+import type { Locale } from '../config/site';
+import { pick } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div class="groups">
+  {
+    repertoire.groups.map((group) => (
+      <section class="group" id={group.id}>
+        <h2>{pick(group.title, locale)}</h2>
+        <dl class="works">
+          {group.pieces.map((piece) => (
+            <div>
+              <dt>{piece.source}</dt>
+              <dd>
+                {piece.works.map((work) => (
+                  <span class="work">{work}</span>
+                ))}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .groups {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .group h2 {
+    font-size: var(--step-2);
+    position: relative;
+    padding-top: 1.15rem;
+  }
+
+  .group h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background: var(--string);
+  }
+
+  .works {
+    margin-top: 1.25rem;
+  }
+
+  .work {
+    display: block;
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import '@fontsource-variable/newsreader';
+import '@fontsource-variable/karla';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Seo from '../components/Seo.astro';
+import { locales, type Locale } from '../config/site';
+import { t } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description?: string;
+  /** Pfad ohne Sprachpraefix, z.B. "/repertoire/" - fuer Canonical und hreflang */
+  path: string;
+}
+
+const { locale, title, description, path } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locales[locale].htmlLang}>
+  <head>
+    <Seo locale={locale} title={title} description={description} path={path} />
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">{t(locale, 'nav.skip')}</a>
+    <Header locale={locale} />
+    <main id="inhalt">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

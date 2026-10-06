@@ -1,0 +1,75 @@
+---
+import { settings } from '../lib/content';
+import type { Locale } from '../config/site';
+import { pick, localePath } from '../i18n/utils';
+import { t } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+
+const socials = Object.entries(settings.social ?? {})
+  .filter(([, url]) => typeof url === 'string' && url.trim() !== '')
+  .map(([platform, url]) => ({ platform, url: url as string }));
+---
+
+<footer class="site-footer">
+  <div class="wrap inner">
+    <p class="small identity">
+      {settings.name} &middot; {settings.instrument}<br />
+      <a href={`mailto:${settings.email}`}>{settings.email}</a>
+      {settings.phone && <><br /><a href={`tel:${settings.phone.replace(/\s+/g, '')}`}>{settings.phone}</a></>}
+      <br />{pick(settings.region, locale)}
+    </p>
+
+    <nav class="small" aria-label={t(locale, 'footer.imprint')}>
+      <ul>
+        <li><a href={localePath('/impressum', locale)}>{t(locale, 'footer.imprint')}</a></li>
+        <li><a href={localePath('/datenschutz', locale)}>{t(locale, 'footer.privacy')}</a></li>
+        {socials.map((social) => (
+          <li><a href={social.url} rel="me noopener">{social.platform}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <p class="small copyright">&copy; {year} {settings.name}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+    padding-block: clamp(2.5rem, 6vw, 4rem) 2rem;
+  }
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem 3rem;
+  }
+
+  .identity {
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .copyright {
+    margin: 2.5rem 0 0;
+    color: var(--ink-soft);
+  }
+</style>

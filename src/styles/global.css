@@ -1,0 +1,277 @@
+/*
+  Gestaltung
+  ----------
+  Farbwelt: heller Steinton statt Creme, dazu ein tiefes Granatrot.
+  Das Rot ist nicht beliebig gewaehlt: an der Harfe sind die C-Saiten rot
+  eingefaerbt, damit die Spielerin sich zurechtfindet. Genau so wird die Farbe
+  hier benutzt - sparsam, als Orientierung: Name im Kopf, Marke am Beginn jedes
+  Abschnitts, eine einzelne Saite im Kopfbereich.
+
+  Schrift: Newsreader fuer alles Gelesene, Karla fuer Bedienelemente.
+*/
+
+:root {
+  /* Farben */
+  --paper: #f2f3ee;
+  --paper-2: #e7e9e1;
+  --ink: #232720;
+  --ink-soft: #5b6157;
+  --string: #8e1f2f;
+  --line: #cbcec3;
+
+  /* Schrift */
+  --serif: 'Newsreader Variable', 'Iowan Old Style', Georgia, serif;
+  --sans: 'Karla Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Typografische Stufen */
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3125rem;
+  --step-2: 1.625rem;
+  --step-3: clamp(1.9rem, 1.15rem + 2.1vw, 2.6rem);
+  --step-display: clamp(2.35rem, 1.2rem + 4.3vw, 4.1rem);
+
+  /* Raster */
+  --wrap: 68rem;
+  --measure: 36rem;
+  --gap: clamp(1.25rem, 4vw, 2.5rem);
+  --section-space: clamp(3.5rem, 9vw, 7rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--step-0);
+  font-weight: 380;
+  line-height: 1.66;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 450;
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-display);
+}
+
+h2 {
+  font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-2);
+}
+
+p {
+  margin: 0 0 1.1em;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 140ms ease;
+}
+
+a:hover {
+  text-decoration-color: var(--string);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--string);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Bausteine ------------------------------------------------------------- */
+
+.wrap {
+  width: min(100% - 2 * var(--gap), var(--wrap));
+  margin-inline: auto;
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+.lead {
+  font-size: var(--step-1);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.section {
+  padding-block: var(--section-space);
+  border-top: 1px solid var(--line);
+}
+
+.section:first-of-type {
+  border-top: 0;
+}
+
+/* Die kurze Marke am Abschnittsbeginn: eine angeschlagene Saite. */
+.section > .wrap > h2 {
+  position: relative;
+  padding-top: 1.15rem;
+}
+
+.section > .wrap > h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background: var(--string);
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+
+.small {
+  font-family: var(--sans);
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+.credit {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: var(--step--1);
+  padding: 0.6rem 1rem;
+  z-index: 50;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.button {
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease;
+}
+
+.button:hover {
+  background: var(--string);
+  border-color: var(--string);
+}
+
+.button[disabled] {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.text-link {
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  font-weight: 600;
+  text-decoration-color: var(--string);
+}
+
+/* Werkliste: Quelle links, Stuecke rechts. Wird auf schmalen Schirmen gestapelt. */
+.works {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.works > div {
+  display: grid;
+  grid-template-columns: minmax(9rem, 16rem) 1fr;
+  gap: 0.25rem var(--gap);
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.works dt {
+  font-family: var(--sans);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  padding-top: 0.15rem;
+}
+
+.works dd {
+  margin: 0;
+}
+
+.works dd + dd {
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 34rem) {
+  .works > div {
+    grid-template-columns: 1fr;
+  }
+}

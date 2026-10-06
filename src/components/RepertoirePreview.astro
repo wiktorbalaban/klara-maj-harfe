@@ -1,0 +1,50 @@
+---
+import { home } from '../lib/content';
+import type { Locale } from '../config/site';
+import { pick, localePath } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { repertoire } = home;
+---
+
+<section class="section" id="repertoire">
+  <div class="wrap">
+    <h2>{pick(repertoire.title, locale)}</h2>
+
+    <p class="prose intro">{pick(repertoire.text, locale)}</p>
+
+    <dl class="works">
+      {
+        repertoire.highlights.map((item) => (
+          <div>
+            <dt>{item.source}</dt>
+            <dd>{item.work}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <p class="more">
+      <a class="text-link" href={localePath('/repertoire', locale)}>{pick(repertoire.linkLabel, locale)}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .intro {
+    margin-top: 1.75rem;
+  }
+
+  .works {
+    margin-top: 1.5rem;
+  }
+
+  .more {
+    margin-top: 1.75rem;
+    margin-bottom: 0;
+  }
+</style>

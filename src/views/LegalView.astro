@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { legalDoc, settings } from '../lib/content';
+import type { Locale } from '../config/site';
+
+interface Props {
+  locale: Locale;
+  slug: 'impressum' | 'datenschutz';
+}
+
+const { locale, slug } = Astro.props;
+const doc = legalDoc(slug, locale);
+const { Content, frontmatter } = doc;
+---
+
+<Base locale={locale} title={`${frontmatter.title} – ${settings.name}`} path={`/${slug}/`}>
+  <section class="section">
+    <div class="wrap">
+      <h1>{frontmatter.title}</h1>
+      <div class="legal prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal {
+    margin-top: 2rem;
+  }
+
+  .legal :global(h2) {
+    font-size: var(--step-2);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .legal :global(blockquote) {
+    margin: 0 0 2rem;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--string);
+    background: var(--paper-2);
+  }
+
+  .legal :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

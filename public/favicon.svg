@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Harfe">
+  <rect width="32" height="32" fill="#f2f3ee"/>
+  <g stroke="#232720" stroke-width="1.4" fill="none" stroke-linecap="round">
+    <path d="M8 26V9c0-2.6 6-5.4 15-6"/>
+    <path d="M8 26h16"/>
+  </g>
+  <g stroke="#232720" stroke-width="0.9" opacity="0.65">
+    <path d="M11 25V8.2"/>
+    <path d="M14 25V6.6"/>
+    <path d="M17 25V5.3"/>
+    <path d="M20 25V4.2"/>
+  </g>
+  <path d="M23 25V3.4" stroke="#8e1f2f" stroke-width="1.1"/>
+</svg>

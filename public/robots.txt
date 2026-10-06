@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://klara-maj-harfe.at/sitemap-index.xml

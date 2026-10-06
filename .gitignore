@@ -1,28 +1,9 @@
-# Abhängigkeiten
 node_modules/
-
-# Build-Ausgabe und von Astro erzeugte Typen
 dist/
 .astro/
-
-# Lokale Schlüssel (Vorlage: .env.example)
 .env
-.env.*
-!.env.example
-
-# Wrangler (lokaler Deploy)
-.wrangler/
-.dev.vars*
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor und Betriebssystem
+.env.production
 .DS_Store
-Thumbs.db
-.idea/
+npm-debug.log*
+.wrangler/
 .vscode/*
-!.vscode/extensions.json

@@ -1,0 +1,319 @@
+# Pages CMS (https://pagescms.org) - die Masken, die Klara zu sehen bekommt.
+#
+# Geprueft gegen die Pages-CMS-2.x-Dokumentation:
+#   Feldtypen      -> /docs/configuration/content/fields/
+#   Inhaltseintrag -> /docs/configuration/content/
+#   Medien         -> /docs/configuration/media/
+#   Komponenten    -> /docs/configuration/components/
+#   Listen         -> /docs/configuration/content/list/
+#
+# Grundsatz: Klara fuellt Felder aus, sie baut kein Layout. Wer ein Feld in
+# src/content/*.yml ergaenzt, muss es auch hier ergaenzen - sonst existiert es
+# fuer sie nicht. Das Skript "npm run check:cms" prueft genau das.
+
+media:
+  input: public/media
+  output: /media
+  categories: [image]
+  # Dateinamen beim Hochladen entschaerfen (Umlaute, Leerzeichen).
+  rename: safe
+
+# Wiederverwendbare Feldgruppen. Das zweisprachige Feld kommt ueberall vor.
+components:
+  zweisprachigKurz:
+    type: object
+    fields:
+      - name: de
+        label: Deutsch
+        type: string
+      - name: en
+        label: Englisch
+        type: string
+        description: Leer lassen - dann erscheint der deutsche Text.
+
+  zweisprachigLang:
+    type: object
+    fields:
+      - name: de
+        label: Deutsch
+        type: text
+      - name: en
+        label: Englisch
+        type: text
+        description: Leer lassen - dann erscheint der deutsche Text.
+
+content:
+  - name: home
+    label: Startseite
+    type: file
+    path: src/content/home.yml
+    format: yaml
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Kopfbereich
+        type: object
+        fields:
+          - name: headline
+            label: Überschrift
+            component: zweisprachigKurz
+          - name: intro
+            label: Einleitung
+            component: zweisprachigLang
+          - name: photo
+            label: Titelbild
+            type: image
+            description: Querformat, etwa 1600 Pixel breit.
+          - name: photoAlt
+            label: Bildbeschreibung
+            component: zweisprachigKurz
+            description: Ein Satz für Screenreader und für Google.
+          - name: photoCredit
+            label: Fotonachweis
+            type: string
+
+      - name: about
+        label: Über mich
+        type: object
+        fields:
+          - name: title
+            label: Überschrift
+            component: zweisprachigKurz
+          - name: text
+            label: Text
+            component: zweisprachigLang
+          - name: photo
+            label: Porträtfoto
+            type: image
+            description: Hochformat, etwa 1000 Pixel breit.
+          - name: photoAlt
+            label: Bildbeschreibung
+            component: zweisprachigKurz
+          - name: photoCredit
+            label: Fotonachweis
+            type: string
+
+      - name: repertoire
+        label: Repertoire-Vorschau
+        type: object
+        fields:
+          - name: title
+            label: Überschrift
+            component: zweisprachigKurz
+          - name: text
+            label: Text
+            component: zweisprachigLang
+          - name: highlights
+            label: Beispielstücke auf der Startseite
+            type: object
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: false
+                summary: '{source} - {work}'
+            fields:
+              - name: source
+                label: Komponist, Film oder Interpret
+                type: string
+                required: true
+              - name: work
+                label: Stück
+                type: string
+                required: true
+          - name: linkLabel
+            label: Beschriftung des Links zur ganzen Liste
+            component: zweisprachigKurz
+
+      - name: contact
+        label: Kontakt
+        type: object
+        fields:
+          - name: title
+            label: Überschrift
+            component: zweisprachigKurz
+          - name: text
+            label: Text neben dem Formular
+            component: zweisprachigLang
+          - name: note
+            label: Hinweis unter dem Formular
+            component: zweisprachigLang
+
+  - name: repertoire
+    label: Repertoire
+    type: file
+    path: src/content/repertoire.yml
+    format: yaml
+    operations:
+      delete: false
+    fields:
+      - name: intro
+        label: Einleitungstext
+        component: zweisprachigLang
+      - name: groups
+        label: Gruppen
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: '{id}'
+        fields:
+          - name: id
+            label: Kürzel für den Link
+            type: string
+            required: true
+            pattern:
+              regex: '^[a-z0-9-]+$'
+              message: Nur Kleinbuchstaben, Ziffern und Bindestriche.
+          - name: title
+            label: Name der Gruppe
+            component: zweisprachigKurz
+          - name: pieces
+            label: Stücke
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: '{source}'
+            fields:
+              - name: source
+                label: Komponist, Film oder Interpret
+                type: string
+                required: true
+              - name: works
+                label: Titel
+                type: string
+                list: true
+                description: Ein Eintrag pro Titel. Mehrere Titel desselben Komponisten stehen untereinander.
+
+  - name: settings
+    label: Grundeinstellungen
+    type: file
+    path: src/content/settings.yml
+    format: yaml
+    operations:
+      delete: false
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: instrument
+        label: Instrument
+        type: string
+        required: true
+      - name: email
+        label: E-Mail-Adresse
+        type: string
+        required: true
+      - name: phone
+        label: Telefonnummer
+        type: string
+        description: Leer lassen, wenn die Nummer nicht öffentlich stehen soll.
+      - name: region
+        label: Region
+        component: zweisprachigKurz
+      - name: social
+        label: Social Media
+        type: object
+        fields:
+          - name: instagram
+            label: Instagram
+            type: string
+          - name: youtube
+            label: YouTube
+            type: string
+          - name: facebook
+            label: Facebook
+            type: string
+      - name: seo
+        label: Für Google und geteilte Links
+        type: object
+        fields:
+          - name: description
+            label: Kurzbeschreibung
+            component: zweisprachigLang
+          - name: image
+            label: Bild beim Teilen
+            type: image
+            description: 1200 × 630 Pixel.
+
+  - name: rechtliches
+    label: Rechtliches
+    type: group
+    items:
+      - name: impressum_de
+        label: Impressum
+        type: file
+        path: src/content/legal/impressum.de.md
+        format: yaml-frontmatter
+        operations:
+          delete: false
+        fields:
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+          - name: updated
+            label: Zuletzt geändert
+            type: date
+          - name: body
+            label: Text
+            type: rich-text
+
+      - name: datenschutz_de
+        label: Datenschutz
+        type: file
+        path: src/content/legal/datenschutz.de.md
+        format: yaml-frontmatter
+        operations:
+          delete: false
+        fields:
+          - name: title
+            label: Überschrift
+            type: string
+            required: true
+          - name: updated
+            label: Zuletzt geändert
+            type: date
+          - name: body
+            label: Text
+            type: rich-text
+
+      - name: impressum_en
+        label: Impressum (englisch)
+        type: file
+        path: src/content/legal/impressum.en.md
+        format: yaml-frontmatter
+        operations:
+          delete: false
+        fields:
+          - name: title
+            label: Überschrift
+            type: string
+          - name: updated
+            label: Zuletzt geändert
+            type: date
+          - name: body
+            label: Text
+            type: rich-text
+
+      - name: datenschutz_en
+        label: Datenschutz (englisch)
+        type: file
+        path: src/content/legal/datenschutz.en.md
+        format: yaml-frontmatter
+        operations:
+          delete: false
+        fields:
+          - name: title
+            label: Überschrift
+            type: string
+          - name: updated
+            label: Zuletzt geändert
+            type: date
+          - name: body
+            label: Text
+            type: rich-text

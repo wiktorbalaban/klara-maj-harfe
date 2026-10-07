@@ -1,62 +1,43 @@
-# Texte der Startseite.
-#
-# Jedes Textfeld hat eine deutsche (de) und eine englische (en) Fassung.
-# Leeres englisches Feld = die deutsche Fassung wird angezeigt.
-# Felder mit "PLATZHALTER" muessen vor dem Livegang ersetzt werden.
-
 hero:
   headline:
     de: Harfenmusik für euren Hochzeitstag
     en: Harp music for your wedding day
   intro:
-    de: >-
-      Die Harfe braucht keinen Aufbau und keine Verstärkung. Sie klingt in der
+    de: "Die Harfe braucht keinen Aufbau und keine Verstärkung. Sie klingt in der
       Kirche genauso wie im Standesamt oder draußen im Garten: leise genug für
-      den Sektempfang, tragend genug für den Einzug.
-    en: >-
-      A harp needs no amplification and almost no setup. It sounds right in a
-      church, at the registry office or outdoors: quiet enough for the reception,
-      full enough for the entrance.
+      den Sektempfang, tragend genug für den Einzug."
+    en: "A harp needs no amplification and almost no setup. It sounds right in a
+      church, at the registry office or outdoors: quiet enough for the
+      reception, full enough for the entrance."
   photo: /media/hero.jpg
   photoAlt:
     de: Konzertharfe vor hellem Hintergrund
     en: Concert harp against a light background
-  # Fotografennachweis, erscheint klein unter dem Bild. Leer lassen, wenn nicht nötig.
-  photoCredit: ""
-
 about:
   title:
     de: Über mich
     en: About me
   text:
-    de: >-
-      PLATZHALTER. Hier stehen zwei bis vier Sätze von Klara: seit wann sie
-      Harfe spielt, wo sie ausgebildet wurde, wie viele Hochzeiten sie im Jahr
+    de: "PLATZHALTER. Hier stehen zwei bis vier Sätze von Klara: seit wann sie Harfe
+      spielt, wo sie ausgebildet wurde, wie viele Hochzeiten sie im Jahr
       begleitet und was ihr dabei wichtig ist. Dieser Absatz ersetzt kein
-      Lebenslauf, er soll den Eindruck eines kurzen Gesprächs machen.
-    en: >-
-      PLACEHOLDER. Two to four sentences from Klara: how long she has played the
+      Lebenslauf, er soll den Eindruck eines kurzen Gesprächs machen. sdf"
+    en: "PLACEHOLDER. Two to four sentences from Klara: how long she has played the
       harp, where she trained, how many weddings she plays each year and what
-      matters to her. Not a CV, more the impression of a short conversation.
+      matters to her. Not a CV, more the impression of a short conversation."
   photo: /media/portrait.jpg
   photoAlt:
     de: Klara Maj an der Harfe
     en: Klara Maj at the harp
-  photoCredit: ""
-
 repertoire:
   title:
     de: Repertoire
     en: Repertoire
   text:
-    de: >-
-      Von Debussy über Filmmusik bis zu den Stücken, die im Radio laufen.
+    de: Von Debussy über Filmmusik bis zu den Stücken, die im Radio laufen.
       Wunschstücke sind möglich, auch wenn sie unten nicht stehen.
-    en: >-
-      From Debussy through film scores to the songs on the radio. Requests are
+    en: From Debussy through film scores to the songs on the radio. Requests are
       welcome, even when they are not on the list below.
-  # Diese Stücke stehen als Vorgeschmack auf der Startseite.
-  # Sie müssen genauso in repertoire.yml vorkommen.
   highlights:
     - source: C. Debussy
       work: Clair de Lune
@@ -69,19 +50,15 @@ repertoire:
   linkLabel:
     de: Das ganze Repertoire ansehen
     en: See the full repertoire
-
 contact:
   title:
     de: Kontakt
     en: Contact
   text:
-    de: >-
-      Schreibt mir Datum, Ort und Art der Feier. Ich melde mich innerhalb von
-      zwei Tagen mit Verfügbarkeit und Preis.
-    en: >-
-      Send me the date, the place and the kind of celebration. I reply within two
+    de: Schreibt mir Datum, Ort und Art der Feier. Ich melde mich innerhalb von zwei
+      Tagen mit Verfügbarkeit und Preis.
+    en: Send me the date, the place and the kind of celebration. I reply within two
       days with availability and a price.
-  # Hinweis unter dem Formular
   note:
     de: Für kurzfristige Termine lohnt sich ein Anruf mehr als eine Nachricht.
     en: For short-notice dates, a call gets you an answer faster than a message.

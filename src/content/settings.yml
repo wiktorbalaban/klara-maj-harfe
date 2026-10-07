@@ -1,28 +1,13 @@
-# Grundeinstellungen der Seite.
-# Alles hier kann im CMS bearbeitet werden.
-
-# Name im Kopf der Seite
 name: Klara Maj
-# Zweites Wort im Kopf, steht in der Akzentfarbe
 instrument: Harfe
-
-# Kontaktdaten (erscheinen im Kontaktbereich und im Fussbereich)
-email: PLATZHALTER@example.at
-phone: ""            # leer lassen, wenn keine Telefonnummer gezeigt werden soll
+email: PLATZHALTERRR@example.at
 region:
   de: Wien und Umgebung
   en: Vienna and surroundings
-
-# Social-Media-Links. Leere Felder werden nicht angezeigt.
-social:
-  instagram: ""
-  youtube: ""
-  facebook: ""
-
-# Kurzbeschreibung fuer Google und fuer geteilte Links
 seo:
   description:
-    de: Harfenmusik für Trauung, Standesamt und Empfang. Repertoire von Klassik bis Filmmusik, Wunschstücke auf Anfrage.
-    en: Harp music for ceremonies, registry offices and receptions. Repertoire from classical to film music, requests welcome.
-  # Bild, das beim Teilen eines Links angezeigt wird (1200x630)
+    de: Harfenmusik für Trauung, Standesamt und Empfang. Repertoire von Klassik bis
+      Filmmusik, Wunschstücke auf Anfrage.
+    en: Harp music for ceremonies, registry offices and receptions. Repertoire from
+      classical to film music, requests welcome.
   image: /media/og.jpg

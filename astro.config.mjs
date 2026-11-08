@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { enabledLocales, defaultLocale } from './src/config/site.js';
 
 // Die Produktions-URL. Wird fuer Sitemap und Canonical-Tags gebraucht.
-const SITE = 'https://klara-maj-harfe.at';
+const SITE = 'https://harfe-maj.at';
 
 export default defineConfig({
   site: SITE,

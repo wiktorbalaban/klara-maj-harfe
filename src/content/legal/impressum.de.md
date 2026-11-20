@@ -2,7 +2,6 @@
 title: Impressum
 updated: 2026-09-22
 ---
-
 > **PLATZHALTER – vor dem Livegang ersetzen.** Die folgenden Angaben sind ein
 > Gerüst nach § 5 E-Commerce-Gesetz (ECG) und § 25 Mediengesetz (kleine
 > Website). Die endgültige Fassung bitte mit der WKO-Vorlage oder einer
@@ -11,22 +10,17 @@ updated: 2026-09-22
 
 ## Medieninhaberin und für den Inhalt verantwortlich
 
-Klara Maj
-PLATZHALTER Straße 1
-PLATZHALTER PLZ Ort
+Klara Maj  
+Trauttmansdorffgasse 3A/8  
+8010 Graz  
 Österreich
 
-E-Mail: PLATZHALTER@example.at
-Telefon: PLATZHALTER
+E-Mail: klara.maj04@gmail.com  
+Telefon: 06609093491
 
 ## Unternehmensgegenstand
 
 Musikalische Darbietung, insbesondere Harfenmusik bei Trauungen und Feiern.
-
-## Gewerbe- bzw. Berufsangaben
-
-PLATZHALTER: Gewerberegisternummer oder Hinweis auf freies Gewerbe,
-zuständige Behörde, UID-Nummer falls vorhanden.
 
 ## Grundlegende Richtung (Blattlinie)
 
@@ -35,5 +29,5 @@ informiert über Repertoire und Buchungsmöglichkeiten.
 
 ## Urheberrecht und Bilder
 
-Alle Texte und Bilder auf dieser Website sind urheberrechtlich geschützt.
-Fotos: PLATZHALTER Fotografin oder Fotograf.
+Alle Texte und Bilder auf dieser Website sind urheberrechtlich geschützt.  
+Fotos: Moritz Lalagas 

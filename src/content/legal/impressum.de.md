@@ -2,11 +2,7 @@
 title: Impressum
 updated: 2026-09-22
 ---
-> **PLATZHALTER – vor dem Livegang ersetzen.** Die folgenden Angaben sind ein
-> Gerüst nach § 5 E-Commerce-Gesetz (ECG) und § 25 Mediengesetz (kleine
-> Website). Die endgültige Fassung bitte mit der WKO-Vorlage oder einer
-> Rechtsberatung abgleichen – welche Angaben nötig sind, hängt von der
-> Rechtsform ab.
+>
 
 ## Medieninhaberin und für den Inhalt verantwortlich
 
@@ -15,7 +11,7 @@ Trauttmansdorffgasse 3A/8
 8010 Graz  
 Österreich
 
-E-Mail: klara.maj04@gmail.com  
+E-Mail: [klara.maj04@gmail.com](mailto:klara.maj04@gmail.com)  
 Telefon: 06609093491
 
 ## Unternehmensgegenstand

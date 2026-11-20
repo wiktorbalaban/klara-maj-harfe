@@ -1,6 +1,6 @@
 ---
 title: Datenschutzerklärung
-updated: 2026-09-22
+updated: 2026-11-20
 ---
 > **PLATZHALTER – vor dem Livegang prüfen lassen.** Dieser Text beschreibt die
 > technische Umsetzung dieser Website korrekt, ersetzt aber keine

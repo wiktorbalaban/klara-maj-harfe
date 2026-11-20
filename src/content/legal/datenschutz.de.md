@@ -2,7 +2,6 @@
 title: Datenschutzerklärung
 updated: 2026-09-22
 ---
-
 > **PLATZHALTER – vor dem Livegang prüfen lassen.** Dieser Text beschreibt die
 > technische Umsetzung dieser Website korrekt, ersetzt aber keine
 > Rechtsberatung. Vor dem Livegang bitte mit den tatsächlich eingesetzten
@@ -10,7 +9,7 @@ updated: 2026-09-22
 
 ## Verantwortliche
 
-Klara Maj, PLATZHALTER Adresse, E-Mail: PLATZHALTER@example.at
+Klara Maj, Trauttmansdorffgasse 3A/8 8010 Graz. E-Mail: [klara-maj04@gmail.com](mailto:PLATZHALTER@example.at)
 
 ## Was diese Website speichert
 

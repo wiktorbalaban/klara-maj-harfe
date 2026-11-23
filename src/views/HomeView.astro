@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import RepertoirePreview from '../components/RepertoirePreview.astro';
+import Banner from '../components/Banner.astro';
 import Contact from '../components/Contact.astro';
 import { settings } from '../lib/content';
 import type { Locale } from '../config/site';
@@ -21,5 +22,6 @@ const title = `${settings.name} – ${settings.instrument} | ${pick(home.hero.he
   <Hero locale={locale} />
   <About locale={locale} />
   <RepertoirePreview locale={locale} />
+  <Banner locale={locale} />
   <Contact locale={locale} />
 </Base>

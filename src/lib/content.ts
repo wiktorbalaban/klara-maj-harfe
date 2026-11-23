@@ -32,6 +32,7 @@ export interface Settings {
 export interface HomeContent {
   hero: {
     headline: LocalizedString;
+    attribution: string;
     intro: LocalizedString;
     photo: string;
     photoAlt: LocalizedString;
@@ -49,6 +50,11 @@ export interface HomeContent {
     text: LocalizedString;
     highlights: { source: string; work: string }[];
     linkLabel: LocalizedString;
+  };
+  banner: {
+    photo: string;
+    photoAlt: LocalizedString;
+    photoCredit?: string;
   };
   contact: {
     title: LocalizedString;

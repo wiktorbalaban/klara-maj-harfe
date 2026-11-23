@@ -58,6 +58,10 @@ content:
           - name: headline
             label: Überschrift
             component: zweisprachigKurz
+          - name: attribution
+            label: Urheber des Zitats
+            type: string
+            description: Name, der unter dem Zitat steht. Wird nicht übersetzt.
           - name: intro
             label: Einleitung
             component: zweisprachigLang
@@ -125,6 +129,22 @@ content:
           - name: linkLabel
             label: Beschriftung des Links zur ganzen Liste
             component: zweisprachigKurz
+
+      - name: banner
+        label: Bild zwischen Repertoire und Kontakt
+        type: object
+        fields:
+          - name: photo
+            label: Bild
+            type: image
+            description: Querformat, etwa 1600 Pixel breit. Leer lassen blendet das Bild aus.
+          - name: photoAlt
+            label: Bildbeschreibung
+            component: zweisprachigKurz
+            description: Ein Satz für Screenreader und für Google.
+          - name: photoCredit
+            label: Fotonachweis
+            type: string
 
       - name: contact
         label: Kontakt

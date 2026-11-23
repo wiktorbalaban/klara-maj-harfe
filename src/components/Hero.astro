@@ -29,7 +29,8 @@ const strings = Array.from({ length: 28 }, (_, index) => ({
 
   <div class="wrap hero-inner">
     <div class="hero-text">
-      <h1>{pick(hero.headline, locale)}</h1>
+      <h1 class="epigraph">{pick(hero.headline, locale)}</h1>
+      {hero.attribution && <p class="epigraph-author">— {hero.attribution}</p>}
       <p class="lead">{pick(hero.intro, locale)}</p>
     </div>
 
@@ -102,7 +103,20 @@ const strings = Array.from({ length: 28 }, (_, index) => ({
   }
 
   .hero-text {
-    max-width: 30ch;
+    max-width: 34ch;
+  }
+
+  .epigraph {
+    font-size: var(--step-3);
+    font-style: italic;
+    max-width: 34ch;
+  }
+
+  .epigraph-author {
+    margin: 0.6rem 0 0;
+    font-size: var(--step-0);
+    font-style: normal;
+    color: var(--ink-soft);
   }
 
   .hero-text .lead {
@@ -123,12 +137,12 @@ const strings = Array.from({ length: 28 }, (_, index) => ({
 
   @media (min-width: 56rem) {
     .hero-inner {
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      align-items: center;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      align-items: end;
     }
 
     .hero-text {
-      padding-block: 2rem;
+      padding-block: 2rem 0;
     }
   }
 </style>

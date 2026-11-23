@@ -1,9 +1,10 @@
 hero:
   headline:
-    de: ',,Musik drückt das aus, was nicht gesagt werden kann und worüber zu
-      schweigen unmöglich ist" Victor Hugo'
-    en: '"Music expresses that which cannot be put into words and that which cannot
-      remain silent" Victor Hugo'
+    de: '„Musik drückt das aus, was nicht gesagt werden kann und worüber zu
+      schweigen unmöglich ist.”'
+    en: '“Music expresses that which cannot be put into words and that which cannot
+      remain silent”'
+  attribution: Victor Hugo
   intro:
     de: Die Harfe als Soloinstrument wurde schon seit Jahrhunderten geschätzt und
       gefeiert. Egal ob im Standesamt, im Weingarten, in der Kirche oder im
@@ -76,6 +77,11 @@ repertoire:
   linkLabel:
     de: Das ganze Repertoire ansehen
     en: See the full repertoire
+banner:
+  photo: /media/a7w06042.jpeg
+  photoAlt:
+    de: PLATZHALTER - Bildbeschreibung eintragen
+    en: PLACEHOLDER - add image description
 contact:
   title:
     de: Kontakt

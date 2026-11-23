@@ -1,0 +1,44 @@
+---
+import { home } from '../lib/content';
+import type { Locale } from '../config/site';
+import { pick } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { banner } = home;
+---
+
+{
+  banner.photo && (
+    <section class="section">
+      <div class="wrap">
+        <figure>
+          <img
+            src={banner.photo}
+            alt={pick(banner.photoAlt, locale)}
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
+          {banner.photoCredit && <figcaption class="credit">{banner.photoCredit}</figcaption>}
+        </figure>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  figure {
+    margin: 0;
+  }
+
+  figure img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+</style>

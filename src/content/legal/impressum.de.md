@@ -2,7 +2,7 @@
 title: Impressum
 updated: 2026-09-22
 ---
->
+
 
 ## Medieninhaberin und für den Inhalt verantwortlich
 
@@ -26,4 +26,4 @@ informiert über Repertoire und Buchungsmöglichkeiten.
 ## Urheberrecht und Bilder
 
 Alle Texte und Bilder auf dieser Website sind urheberrechtlich geschützt.  
-Fotos: Moritz Lalagas 
+Fotos: Moritz Lalagas, Willi Pleschberger

@@ -1,9 +1,9 @@
 hero:
   headline:
-    de: '„Musik drückt das aus, was nicht gesagt werden kann und worüber zu
-      schweigen unmöglich ist.”'
-    en: '“Music expresses that which cannot be put into words and that which cannot
-      remain silent”'
+    de: „Musik drückt das aus, was nicht gesagt werden kann und worüber zu schweigen
+      unmöglich ist.”
+    en: “Music expresses that which cannot be put into words and that which cannot
+      remain silent”
   attribution: Victor Hugo
   intro:
     de: Die Harfe als Soloinstrument wurde schon seit Jahrhunderten geschätzt und
@@ -52,7 +52,7 @@ about:
       of Music and Performing Arts in Graz with Prof. Margit-Anna Süß and Prof.
       Anne-Sophie Bertrand, where she continues to perfect her artistic
       abilites. '
-  photo: /media/whatsapp-image-2026-11-20-at-232150.jpeg
+  photo: /media/a7w06042-1.jpeg
   photoAlt:
     de: Klara Maj an der Harfe
     en: Klara Maj at the harp
@@ -78,10 +78,10 @@ repertoire:
     de: Das ganze Repertoire ansehen
     en: See the full repertoire
 banner:
-  photo: /media/a7w06042.jpeg
+  photo: /media/whatsapp-image-2026-11-23-at-215738.jpeg
   photoAlt:
-    de: PLATZHALTER - Bildbeschreibung eintragen
-    en: PLACEHOLDER - add image description
+    de: Zwei Harfen
+    en: Two harps
 contact:
   title:
     de: Kontakt
